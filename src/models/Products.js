@@ -1,6 +1,5 @@
 import { DataTypes, Sequelize } from "sequelize";
 import { sequelize } from "../db";
-import { User } from "./Users";
 
 export const Products = sequelize.define("Product", {
   
@@ -12,10 +11,16 @@ export const Products = sequelize.define("Product", {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
+    required: true,
+    unique: true,
   },
   description:{
     type: DataTypes.TEXT,
   },
+  img:{
+    type: DataTypes.STRING,
+    required: true,
+  }
 
 });
 

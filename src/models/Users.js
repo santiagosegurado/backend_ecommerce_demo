@@ -1,6 +1,5 @@
 import { DataTypes, Sequelize } from "sequelize";
 import { sequelize } from "../db";
-import { Products } from "./Products";
 
 export const User = sequelize.define("User", {
   
@@ -9,17 +8,17 @@ export const User = sequelize.define("User", {
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
   },
-  first_name: {
+  firts_name: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull:false,
   },
   last_name: {
     type: DataTypes.STRING,
-    allowNull: false,
   },
   user_name: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
   },
   email:{
     type: DataTypes.STRING,
@@ -30,9 +29,9 @@ export const User = sequelize.define("User", {
     type: DataTypes.TEXT,
     allowNull: false
   },
-  perfil:{
-    type: DataTypes.ENUM,
-    values: ['Client', 'Admin']
+  isAdmin:{
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
   }
 },{
   timestamps: false,

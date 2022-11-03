@@ -9,10 +9,13 @@ export const Orders = sequelize.define('Orders',{
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
+  },
+  status:{
+    type: DataTypes.STRING,
+    defaultValue: 'Pending',
   }
 })
 
 
-// Associattion
 User.belongsToMany(Products, { through: Orders });
 Products.belongsToMany(User, { through: Orders });
